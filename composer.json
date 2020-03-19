@@ -1,0 +1,14 @@
+{
+    "name": "8/pharma",
+    "require": {
+        "twig/twig": "^3.0"
+    },
+    "autoload":{
+        "psr-4": {
+            "Core\\":"core",
+            "Controllers\\":"Controllers",
+            "Routers\\":"Routers",
+            "Models\\":"Models"
+        }
+    }
+}
