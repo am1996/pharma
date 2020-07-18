@@ -10,8 +10,8 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Routers\\' => array($baseDir . '/Routers'),
-    'Rakit\\Validation\\' => array($vendorDir . '/rakit/validation/src'),
     'Models\\' => array($baseDir . '/Models'),
     'Core\\' => array($baseDir . '/core'),
     'Controllers\\' => array($baseDir . '/Controllers'),
+    'Classes\\' => array($baseDir . '/Classes'),
 );

@@ -9,10 +9,10 @@
         $this->orm = new ORM("products");
       }
       public function getProductByName($name){
-        $name = mysqli_real_escape_string($this->orm->db,$name);
+        $name = mysqli_real_escape_string($this->orm->db,$name); //prevent sql injection
         $product = $this->orm->select("*")
-                        ->where("lower(name) like '%$name%'")
-                        ->execute();
+                              ->where("lower(name) like '%$name%'")
+                              ->execute();
         return $product;
       }
       public function getProductByID($id){
@@ -36,6 +36,11 @@
         return $this->orm->select("*")
                           ->limit($limit)
                           ->execute();
+      }
+      public function getProductsPrice($name){
+        return $this->orm->select("price,sale_percent")
+                          ->where("name = '$name'")
+                          ->execute()[0];
       }
       public function getLastAdded($limit){
         $limit = mysqli_real_escape_string($this->orm->db,$limit);

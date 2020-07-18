@@ -8,16 +8,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
   <link rel="stylesheet" href="{{'assets/fonts/icomoon/style.css'|frombase}}">
-
   <link rel="stylesheet" href="{{'assets/css/bootstrap.min.css'|frombase}}">
   <link rel="stylesheet" href="{{'assets/css/magnific-popup.css'|frombase}}">
   <link rel="stylesheet" href="{{'assets/css/jquery-ui.css'|frombase}}">
   <link rel="stylesheet" href="{{'assets/css/owl.carousel.min.css'|frombase}}">
   <link rel="stylesheet" href="{{'assets/css/owl.theme.default.min.css'|frombase}}">
-
-
   <link rel="stylesheet" href="{{'assets/css/aos.css'|frombase}}">
-
   <link rel="stylesheet" href="{{'assets/css/style.css'|frombase}}">
 </head>
 <body>
@@ -51,6 +47,16 @@
         <div class="icons">
           <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
           {% if loggedin()  %}
+          <a href="#" class="icons-btn d-inline-block bag" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="icon-home"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/pharma/cart">Your Cart</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/pharma/orders">Your Orders</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/pharma/logout">Logout</a>
+          </div>
           {% else %}
           <a href="#" class="icons-btn d-inline-block bag">
             <span class="icon-person" 

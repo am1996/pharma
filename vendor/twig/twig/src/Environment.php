@@ -713,7 +713,10 @@ class Environment
     {
         return $this->extensionSet->getFunction($name);
     }
-
+    public function http404($temp){
+        http_response_code(404);
+        return $this->render($temp);
+    }
     public function registerUndefinedFunctionCallback(callable $callable)
     {
         $this->extensionSet->registerUndefinedFunctionCallback($callable);

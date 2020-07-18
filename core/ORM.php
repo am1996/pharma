@@ -35,6 +35,10 @@ class ORM{
         $this->query = "$this->query ORDER BY $col";
         return $this;
     }
+    public function offset($by){
+        $this->query = "$this->query offset $by";
+        return $this;
+    }
     public function execute(){
         return $this->db->query($this->query) ? 
         $this->db->query($this->query)->fetch_all(MYSQLI_ASSOC): 

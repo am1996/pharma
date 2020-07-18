@@ -1,12 +1,16 @@
 <?php
 namespace Controllers;
+
 use Core\Validator;
+use Core\Routing;
 class RegisterController extends \Core\Controller{
         private $model;
         function __construct(){
             $this->model = new \Models\UsersModel();
         }
-        public function get(){}
+        public function get(){
+            Routing::redirect("/pharma/404");
+        }
         public function post(){
             global $twig;
             $fullname = $_POST["fullname"] ;
@@ -25,7 +29,6 @@ class RegisterController extends \Core\Controller{
                     "errors"=> $validation->errors
                 ]);
             };
-            $password = password_hash($password,PASSWORD_BCRYPT);
             $result = $this->model->addUser($fullname,$email,$password);
             if($result === 1) {
                 echo $twig->render("thankyou.html",[

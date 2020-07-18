@@ -24,7 +24,6 @@ class ComposerStaticInit605ea27ec7415ca2e586fdb81c4bb882
         'R' => 
         array (
             'Routers\\' => 8,
-            'Rakit\\Validation\\' => 17,
         ),
         'M' => 
         array (
@@ -34,6 +33,7 @@ class ComposerStaticInit605ea27ec7415ca2e586fdb81c4bb882
         array (
             'Core\\' => 5,
             'Controllers\\' => 12,
+            'Classes\\' => 8,
         ),
     );
 
@@ -54,10 +54,6 @@ class ComposerStaticInit605ea27ec7415ca2e586fdb81c4bb882
         array (
             0 => __DIR__ . '/../..' . '/Routers',
         ),
-        'Rakit\\Validation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/rakit/validation/src',
-        ),
         'Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Models',
@@ -69,6 +65,10 @@ class ComposerStaticInit605ea27ec7415ca2e586fdb81c4bb882
         'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Controllers',
+        ),
+        'Classes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Classes',
         ),
     );
 

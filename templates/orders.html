@@ -1,0 +1,47 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="container">
+  {% if orders|length < 1 %}
+  
+  <div class="jumbotron jumbotron-fluid">
+    <div style="text-align:center" class="container">
+      <h1 class="display-4">You didn't order anything yet!</h1>
+      <a class="btn btn-warning" href="/pharma/store">Back to store</a>
+    </div>
+  </div>
+  {% else %}
+    <h2>Your orders</h2>
+    {% for index,order in orders %}
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Amout</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for item in fromJsonToArray(order["order_content"]) %}
+            <tr>
+              <td>{{item['name']}}</td>
+              <td>{{item['count']}}</td>
+              <td>{{ money(item['price']) }}</td>
+            </tr>
+          {% endfor %}
+            <tr>
+              <td>Total Price</td>
+              <td>-</td>
+              <td>{{ money(order["totalprice"]) }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Order #{{index+1}}</th>
+              <th class="text-center" colspan="2">{{ order["delivered"] == 1 ? "Delivered" : "Not delivered yet." }}</th>
+            </tr>
+          </tfoot>
+      </table>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}

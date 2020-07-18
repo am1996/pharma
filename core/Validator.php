@@ -2,7 +2,7 @@
     namespace Core;
     class Validator{
         private static $regexes = array(
-            'email'=> "^[\w\d_]+@[a-zA-Z_]+\.[a-zA-Z]{2,3}$",
+            'email'=> "^[\w\d_.-]+@[a-zA-Z_]+\.[a-zA-Z]{2,3}$",
             'password'=> "^.{8,}$",
             'date' => "^[0-9]{4}[-/][0-9]{1,2}[-/][0-9]{1,2}\$",
             'amount' => "^[-]?[0-9]+\$",
@@ -31,17 +31,21 @@
                     else $this->errors[] = "$otherfield doesn't equal $key.";
                 }else{ 
                     $regex = self::$regexes[$validator];
-                    if(self::validateItem($value,$regex) == 1){
+                    if(self::validateRegex($value,$regex) == 1){
                         $this->result[$key] = $value;
                     }else{
-                        $this->errors[] = "This is not a valid $key.";
+                        $this->errors[] = "This is not a valid $value.";
                     }
                 }
             }
             return $this;
         }
-        public static function validateItem($var, $regex){
+        public static function validateRegex($var, $regex){
             $returnval =  filter_var($var, FILTER_VALIDATE_REGEXP, array("options"=> array("regexp"=>'!'.$regex.'!i'))) != false ? 1 : 0 ;
+            return $returnval;
+        }
+        public static function validateItem($var, $name){
+            $returnval =  filter_var($var, FILTER_VALIDATE_REGEXP, array("options"=> array("regexp"=>'!'.self::$regexes[$name].'!i'))) != false ? 1 : 0 ;
             return $returnval;
         }
     }
